@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const password = document.getElementById('loginPassword').value;
 
         alert('Successful!\nLogin: ' + email);
+        window.location.href = '../html/website.html';
     });
 
     // Sign up submit
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         alert('Successful!\nLogin: ' + login + '\nEmail: ' + email);
+        window.location.href = '../html/website.html';
     });
 
     // Forgot password

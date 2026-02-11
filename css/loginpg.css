@@ -5,12 +5,12 @@
 }
 
 :root {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --surface-2: #1f2937;
+    --bg: #1a2332;
+    --surface: #243447;
+    --surface-2: #243447;
     --border: rgba(255, 255, 255, 0.08);
-    --accent: #1abc9c;
-    --accent-dark: #16a085;
+    --accent: white;
+    --accent-dark: white;
     --accent-glow: rgba(26, 188, 156, 0.15);
     --text: #e6edf3;
     --text-muted: #8b949e;

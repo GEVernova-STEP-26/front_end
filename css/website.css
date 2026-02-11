@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +8,15 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
+main {
+    flex: 1;
+}
+
 .main-nav {
     background: #2c3e50;
     color: white;
@@ -46,6 +53,7 @@ body {
     margin: 0 auto;
     padding: 0 1.5rem;
 }
+
 section {
     padding: 2rem;
     min-height: 100vh;
@@ -64,9 +72,10 @@ h1 {
     border-bottom: 3px solid #1abc9c;
     padding-bottom: 0.5rem;
 }
+
 .intro-page {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,7 +91,7 @@ h1 {
 .intro-content h1 {
     font-size: 2.8rem;
     border-bottom: 3px solid rgba(255, 255, 255, 0.5);
-    color: white;
+    color: black;
     margin-bottom: 1rem;
 }
 
@@ -108,6 +117,7 @@ h1 {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
 .site-header {
     background: #2c3e50;
     color: white;
@@ -145,6 +155,7 @@ h1 {
 .site-header nav a:hover {
     color: #1abc9c;
 }
+
 .layout-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -187,14 +198,16 @@ h1 {
     margin-bottom: 1rem;
     color: #555;
 }
+
 .site-footer {
-    background: #34495e;
+    background: #2c3e50;
     color: white;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
-    margin-top: 2rem;
-    border-radius: 5px;
+    width: 100%;
+    margin-top: auto;
 }
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -248,6 +261,7 @@ h1 {
     font-size: 0.85rem;
     opacity: 0.85;
 }
+
 .card-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -295,7 +309,7 @@ h1 {
 }
 
 .card-footer {
-    padding: 0.75rem 1rem;
+    padding: 1rem;
     border-top: 1px solid #eee;
 }
 
@@ -314,6 +328,7 @@ h1 {
 .card-btn:hover {
     background: #16a085;
 }
+
 .media-object-list {
     display: flex;
     flex-direction: column;
@@ -357,6 +372,7 @@ h1 {
     color: #444;
     line-height: 1.6;
 }
+
 @media (max-width: 768px) {
     .layout-grid {
         grid-template-columns: 1fr;
