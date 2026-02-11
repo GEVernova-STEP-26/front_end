@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Authentication</title>
+    <link rel="stylesheet" href="../css/loginpg.css">
+    <link rel="stylesheet" href="../css/loginpg.js">
+</head>
+<body>
+<div class="screen">
+    <div class="header">Welcome</div>
+
+    <div class="form-container">
+        <div class="form-title">Please enter your personal info</div>
+        <div class="form-content">
+            <!-- sign in-->
+            <form id="signInForm" class="auth-form">
+                <div class="input-group">
+                    <input type="email" id="loginEmail" placeholder="Enter login or email" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="loginPassword" placeholder="Enter the password" required>
+                </div>
+
+                <div class="remember-forgot">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe" checked>
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="primary-button">Sign in</button>
+            </form>
+            <!--sign up-->
+            <form id="signUpForm" class="auth-form hidden">
+                <div class="input-group">
+                    <input type="text" id="signupLogin" placeholder="Enter login" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="tel" id="signupPhone" placeholder="Enter phone number" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="signupPassword" placeholder="Enter the password" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="signupPasswordConfirm" placeholder="Re-enter the password" required>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="termsAccept" required checked>
+                    <label for="termsAccept">I accept the terms of the agreement</label>
+                </div>
+
+                <button type="submit" class="primary-button" id="signUpBtn">Sign up</button>
+            </form>
+
+        </div>
+
+        <!--buttons-->
+        <div class="tab-buttons">
+            <button class="tab-button active" data-tab="signin">SIGN IN</button>
+            <button class="tab-button" data-tab="signup">SIGN UP</button>
+        </div>
+    </div>
+</div>
+
+<script src="../javascript/loginpg.js"></script>
+</body>
+</html>

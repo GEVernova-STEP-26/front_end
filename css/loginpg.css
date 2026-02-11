@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-2: #1f2937;
+    --border: rgba(255, 255, 255, 0.08);
+    --accent: #1abc9c;
+    --accent-dark: #16a085;
+    --accent-glow: rgba(26, 188, 156, 0.15);
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --error: #f85149;
+    --white: #ffffff;
+    --radius: 12px;
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    overflow: hidden;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 60% 40%, rgba(26, 188, 156, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+    animation: bgPulse 8s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes bgPulse {
+    0%   { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.05) rotate(2deg); }
+}
+.screen {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    padding: 2rem 1rem;
+    animation: fadeSlideIn 0.5s ease both;
+}
+
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.header {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: -0.03em;
+    position: relative;
+}
+
+.header::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--accent);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.form-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+}
+.tab-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 4px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 9px;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all var(--transition);
+    background: transparent;
+    color: var(--text-muted);
+}
+
+.tab-button.active {
+    background: var(--accent);
+    color: var(--bg);
+    box-shadow: 0 4px 16px rgba(26, 188, 156, 0.3);
+}
+
+.tab-button:not(.active):hover {
+    color: var(--text);
+    background: var(--surface-2);
+}
+.form-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.01em;
+}
+.form-content {
+    position: relative;
+}
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: formFadeIn 0.3s ease both;
+}
+
+.auth-form.hidden {
+    display: none;
+}
+
+@keyframes formFadeIn {
+    from { opacity: 0; transform: translateX(8px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.input-group input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+    background: rgba(26, 188, 156, 0.03);
+}
+.remember-forgot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.25rem 0;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    user-select: none;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.forgot-password {
+    font-size: 0.875rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition), opacity var(--transition);
+}
+
+.forgot-password:hover {
+    color: var(--accent-dark);
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* ===== Checkbox Group (terms) ===== */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox-group label {
+    cursor: pointer;
+    line-height: 1.4;
+}
+.primary-button {
+    width: 100%;
+    padding: 0.9rem;
+    margin-top: 0.5rem;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: var(--radius);
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.primary-button:hover {
+    background: var(--accent-dark);
+    box-shadow: 0 8px 24px rgba(26, 188, 156, 0.35);
+    transform: translateY(-1px);
+}
+
+.primary-button:hover::before {
+    opacity: 1;
+}
+
+.primary-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(26, 188, 156, 0.2);
+}
+@media (max-width: 480px) {
+    .screen {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .header {
+        font-size: 2.2rem;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .tab-button {
+        font-size: 0.72rem;
+        padding: 0.55rem 0.6rem;
+    }
+}
